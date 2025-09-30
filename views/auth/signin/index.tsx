@@ -6,6 +6,7 @@ import { LoginOption } from "@/components/loginoption/loginoption";
 import { Separator } from "@/components/separator/separator";
 import { COLORS } from "@/global/colors";
 import { ICONS } from "@/global/icons";
+import { useRouter } from "expo-router";
 import {
   KeyboardAvoidingView,
   Platform,
@@ -16,12 +17,18 @@ import {
 } from "react-native";
 
 export const SignInScreen = () => {
+  const router = useRouter();
+
+  const onBack = () => {
+    router.navigate("/splash");
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ScrollView style={styles.container}>
-        <AuthHeader title="Sign In" />
+        <AuthHeader title="Sign In" onPress={onBack} />
         <View style={styles.inputContainer}>
           <Input label="Email" placeholder="Enter your email" />
           <Input
@@ -50,7 +57,6 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     marginTop: 48,
-    backgroundColor: COLORS.background,
     paddingHorizontal: 20,
   },
   inputContainer: {

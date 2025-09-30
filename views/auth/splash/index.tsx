@@ -1,8 +1,19 @@
 import { Button } from "@/components/common/button/button";
 import { COLORS } from "@/global/colors";
+import { useRouter } from "expo-router";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 export const SplashScreen = () => {
+  const router = useRouter()
+
+  const onSignIn = () => {
+    router.navigate("/signin")
+  }
+
+  const onSignUp = () => {
+    router.navigate("/signup")
+  }
+
   return (
     <View style={styles.container}>
       <Image
@@ -15,8 +26,8 @@ export const SplashScreen = () => {
       <Text style={styles.brandText}>here!</Text>
 
       <View style={styles.buttonContainer}>
-        <Button title="Sign In" />
-        <Button title="Sign Up" type="white" />
+        <Button title="Sign In" onPress={onSignIn}/>
+        <Button title="Sign Up" type="white" onPress={onSignUp} />
       </View>
     </View>
   );
