@@ -6,28 +6,43 @@ import { LoginOption } from "@/components/loginoption/loginoption";
 import { Separator } from "@/components/separator/separator";
 import { COLORS } from "@/global/colors";
 import { ICONS } from "@/global/icons";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 export const SignInScreen = () => {
   return (
-    <View style={styles.container}>
-      <AuthHeader title="Sign In" />
-      <View style={styles.inputContainer}>
-        <Input label="Email" placeholder="Enter your email" />
-        <Input label="Password" placeholder="Enter your password" isPassword />
-        <View style={styles.checkboxContainer}>
-          <Checkbox label="Remember Password" />
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView style={styles.container}>
+        <AuthHeader title="Sign In" />
+        <View style={styles.inputContainer}>
+          <Input label="Email" placeholder="Enter your email" />
+          <Input
+            label="Password"
+            placeholder="Enter your password"
+            isPassword
+          />
+          <View style={styles.checkboxContainer}>
+            <Checkbox label="Remember Password" />
+          </View>
+          <Button title="Sign In" onPress={() => {}} />
         </View>
-        <Button title="Sign In" onPress={() => {}} />
-      </View>
-      <Separator label="Or sign in with" />
-      <View style={styles.otherInputContainer}>
-        <LoginOption icon={ICONS.google} />
-      </View>
-      <Text style={styles.footerText}>
-        Don't have an account? <Text style={styles.footerLink}>Sign Up</Text>
-      </Text>
-    </View>
+        <Separator label="Or sign in with" />
+        <View style={styles.otherInputContainer}>
+          <LoginOption icon={ICONS.google} />
+        </View>
+        <Text style={styles.footerText}>
+          Don't have an account? <Text style={styles.footerLink}>Sign Up</Text>
+        </Text>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -50,7 +65,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     flexDirection: "row",
-    textAlign: "center"
+    textAlign: "center",
   },
   footerText: {
     color: COLORS.primary,
@@ -59,6 +74,6 @@ const styles = StyleSheet.create({
   },
   footerLink: {
     fontWeight: "bold",
-    paddingLeft: 8
-  }
+    paddingLeft: 8,
+  },
 });
