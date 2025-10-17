@@ -1,4 +1,5 @@
 import { COLORS } from "@/global/colors";
+import { ICONS } from "@/global/icons";
 import { useState } from "react";
 import {
   Image,
@@ -46,8 +47,8 @@ export const Input = ({
             <Image
               source={
                 isPasswordVisible
-                  ? require("@/assets/icon/eye-closed.png")
-                  : require("@/assets/icon/eye.png")
+                  ? ICONS.eyeClosed
+                  : ICONS.eye
               }
               style={styles.eyeIcon}
             />

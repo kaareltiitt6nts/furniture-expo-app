@@ -1,4 +1,5 @@
 import { COLORS } from "@/global/colors";
+import { ICONS } from "@/global/icons";
 import { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
@@ -28,7 +29,7 @@ export const Checkbox = ({ defaultState, onToggle, label }: CheckboxProps) => {
       >
         <Image
           style={styles.checkboxImage}
-          source={isChecked && require("@/assets/icon/check.png")}
+          source={isChecked && ICONS.check}
         />
       </Pressable>
       <Text style={styles.label}>{label}</Text>

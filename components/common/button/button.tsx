@@ -8,15 +8,12 @@ type ButtonProps = {
   type?: "normal" | "white";
 };
 
-export const Button = ({ onPress, title, type = "normal" }: ButtonProps) => {
+export const Button = ({
+  onPress = () => {},
+  title,
+  type = "normal",
+}: ButtonProps) => {
   const opacity = useRef(new Animated.Value(1)).current;
-
-  const containerStyle =
-    type == "normal"
-      ? styles.container
-      : [styles.container, styles.whiteContainer];
-  const textStyle =
-    type == "normal" ? styles.text : [styles.text, styles.whiteText];
 
   const onPressIn = () => {
     Animated.timing(opacity, {
@@ -43,8 +40,16 @@ export const Button = ({ onPress, title, type = "normal" }: ButtonProps) => {
       onPressIn={onPressIn}
       onPressOut={onPressOut}
     >
-      <Animated.View style={[containerStyle, { opacity }]}>
-        <Text style={textStyle}>{title}</Text>
+      <Animated.View
+        style={[
+          styles.container,
+          type === "white" && styles.whiteContainer,
+          { opacity },
+        ]}
+      >
+        <Text style={[styles.text, type === "white" && styles.whiteText]}>
+          {title}
+        </Text>
       </Animated.View>
     </Pressable>
   );
@@ -62,7 +67,7 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat",
     textAlign: "center",
     fontSize: 16,
-    fontWeight: 700,
+    fontWeight: "700",
   },
   whiteContainer: {
     backgroundColor: "#FFFFFF",

@@ -2,6 +2,7 @@ import { Button } from "@/components/common/button/button";
 import { COLORS } from "@/global/colors";
 import { useRouter } from "expo-router";
 import { Image, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export const SplashScreen = () => {
   const router = useRouter()
@@ -15,7 +16,7 @@ export const SplashScreen = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image
         source={require("@/assets/images/splash.png")}
         style={styles.image}
@@ -29,7 +30,7 @@ export const SplashScreen = () => {
         <Button title="Sign In" onPress={onSignIn}/>
         <Button title="Sign Up" type="white" onPress={onSignUp} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

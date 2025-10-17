@@ -3,37 +3,44 @@ import { ICONS } from "@/global/icons";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 type HeaderProps = {
-  onPress?: () => void;
   title?: string;
 };
 
-export const AuthHeader = ({ onPress, title }: HeaderProps) => {
+export const HomeHeader = (props: HeaderProps) => {
   return (
     <View style={styles.container}>
-      <Pressable onPress={onPress}>
+      <Pressable onPress={() => {}}>
         <Image
-          source={ICONS.arrowLeft}
+          source={ICONS.magnifier}
           style={styles.icon}
         />
       </Pressable>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>{props.title}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    position: "relative",
     flexDirection: "row",
     alignItems: "center",
+    paddingHorizontal: 24,
+    paddingVertical: 16,
   },
   icon: {
-    height: 18,
+    height: 24,
     aspectRatio: 1,
+    tintColor: COLORS.primary,
   },
   title: {
-    fontSize: 26,
-    fontWeight: 500,
-    color: COLORS.primary,
-    paddingLeft: 16,
+    fontSize: 16,
+    fontWeight: 700,
+    color: COLORS.darkGray,
+    textAlign: "center",
+    position: "absolute",
+    left: 0,
+    right: 0,
+    margin: "auto",
   },
 });

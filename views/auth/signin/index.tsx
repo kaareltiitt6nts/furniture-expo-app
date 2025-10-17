@@ -23,6 +23,10 @@ export const SignInScreen = () => {
     router.navigate("/splash");
   };
 
+  const onSignIn = () => {
+    router.navigate("/(tabs)/home")
+  }
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -39,7 +43,7 @@ export const SignInScreen = () => {
           <View style={styles.checkboxContainer}>
             <Checkbox label="Remember Password" />
           </View>
-          <Button title="Sign In" onPress={() => {}} />
+          <Button title="Sign In" onPress={onSignIn} />
         </View>
         <Separator label="Or sign in with" />
         <View style={styles.otherInputContainer}>
