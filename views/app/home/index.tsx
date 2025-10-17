@@ -1,49 +1,47 @@
 import { CategorySlider } from "@/components/category/list-horizontal-slider/CategorySlider";
 import { HomeHeader } from "@/components/homeheader/homeheader";
 import { ProductGridList } from "@/components/product/list-grid/ProductGridList";
+import { ICONS } from "@/global/icons";
 import { useRouter } from "expo-router";
-import {
-  ScrollView,
-  StyleSheet
-} from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const placeholderProducts = [
   {
     name: "Modern Lamp",
     price: 29.99,
-    imageUrl: "@/assets/images/lamp.png"
+    imageUrl: "@/assets/images/lamp.png",
   },
   {
     name: "Stylish Chair",
     price: 89.99,
-    imageUrl: "@/assets/images/lamp.png"
+    imageUrl: "@/assets/images/lamp.png",
   },
   {
     name: "Wooden Table",
     price: 199.99,
-    imageUrl: "@/assets/images/lamp.png"
+    imageUrl: "@/assets/images/lamp.png",
   },
   {
     name: "Wooden Table",
     price: 199.99,
-    imageUrl: "@/assets/images/lamp.png"
+    imageUrl: "@/assets/images/lamp.png",
   },
   {
     name: "Stylish Chair",
     price: 89.99,
-    imageUrl: "@/assets/images/lamp.png"
+    imageUrl: "@/assets/images/lamp.png",
   },
   {
     name: "Wooden Table",
     price: 199.99,
-    imageUrl: "@/assets/images/lamp.png"
+    imageUrl: "@/assets/images/lamp.png",
   },
   {
     name: "Wooden Table",
     price: 199.99,
-    imageUrl: "@/assets/images/lamp.png"
-  }
+    imageUrl: "@/assets/images/lamp.png",
+  },
 ];
 
 const placeholderCategories = [
@@ -55,7 +53,7 @@ const placeholderCategories = [
   { id: 6, title: "Chairs", icon: "flash" },
   { id: 7, title: "Tables", icon: "flash" },
   { id: 8, title: "Sofas", icon: "flash" },
-]
+];
 
 export const HomeScreen = () => {
   const router = useRouter();
@@ -63,7 +61,12 @@ export const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <HomeHeader title="Find All You Need" />
+        <HomeHeader
+          title="Find All You Need"
+          showButton
+          alignButton="left"
+          icon={ICONS.magnifier}
+        />
         <CategorySlider categories={placeholderCategories} />
         <ProductGridList products={placeholderProducts} />
       </ScrollView>
@@ -72,7 +75,5 @@ export const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-
-  }
+  container: {},
 });

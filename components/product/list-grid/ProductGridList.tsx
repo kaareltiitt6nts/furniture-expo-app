@@ -1,6 +1,6 @@
 import {
-  Pressable,
-  StyleSheet
+  StyleSheet,
+  View
 } from "react-native";
 import { ProductPreview, ProductPreviewProps } from "../ProductPreview";
 
@@ -10,11 +10,11 @@ type ProductListProps = {
 
 export const ProductGridList = (props: ProductListProps) => {
   return (
-    <Pressable style={styles.container}>
+    <View style={styles.container}>
       {props.products?.map((product, index) => (
         <ProductPreview key={index} name={product.name} price={product.price} imageUrl={product.imageUrl} />
       ))}
-    </Pressable>
+    </View>
   );
 };
 
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 24
+    paddingHorizontal: 24,
   }
 })
 

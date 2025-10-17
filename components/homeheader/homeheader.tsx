@@ -1,20 +1,30 @@
 import { COLORS } from "@/global/colors";
-import { ICONS } from "@/global/icons";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ImageSourcePropType,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 type HeaderProps = {
-  title?: string;
+  title: string;
+  showButton?: boolean;
+  alignButton?: "left" | "right";
+  icon?: ImageSourcePropType | undefined;
 };
 
 export const HomeHeader = (props: HeaderProps) => {
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => {}}>
-        <Image
-          source={ICONS.magnifier}
-          style={styles.icon}
-        />
+      <Pressable
+        onPress={() => {}}
+        style={props.alignButton === "right" ? { marginLeft: "auto" } : {}}
+      >
+        <Image source={props.icon} style={styles.icon} />
       </Pressable>
+
       <Text style={styles.title}>{props.title}</Text>
     </View>
   );
@@ -26,7 +36,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 24,
-    paddingVertical: 16,
+    height: 64,
   },
   icon: {
     height: 24,

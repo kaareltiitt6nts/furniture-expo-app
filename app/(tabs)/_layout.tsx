@@ -7,6 +7,10 @@ export default function RootLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          paddingHorizontal: 80
+        },
         sceneStyle: {
           backgroundColor: COLORS.background,
         },
@@ -16,8 +20,9 @@ export default function RootLayout() {
         name="home"
         options={{
           title: "Home",
-          tabBarActiveTintColor: COLORS.primary,
-          tabBarIcon: () => <Ionicons name="home" size={24} color={COLORS.primary}/>,
+          tabBarActiveTintColor: COLORS.secondary,
+          tabBarInactiveTintColor: COLORS.secondary,
+          tabBarIcon: ({ focused }) => <Ionicons name="home-outline" size={24} color={focused ? COLORS.primary : COLORS.inputbox} />,
         }}
       />
       <Tabs.Screen
@@ -25,15 +30,17 @@ export default function RootLayout() {
         options={{
           title: "Favorites",
           tabBarActiveTintColor: COLORS.primary,
-          tabBarIcon: () => <Ionicons name="bookmark" size={24} color={COLORS.primary}/>,
+          tabBarInactiveTintColor: COLORS.secondary,
+          tabBarIcon: ({ focused }) => <Ionicons name="bookmark-outline" size={24} color={focused ? COLORS.primary : COLORS.inputbox} />,
         }}
       />
       <Tabs.Screen
-        name="settings"
+        name="profile"
         options={{
-          title: "Settings",
+          title: "Profile",
           tabBarActiveTintColor: COLORS.primary,
-          tabBarIcon: () => <Ionicons name="settings" size={24} color={COLORS.primary}/>,
+          tabBarInactiveTintColor: COLORS.secondary,
+          tabBarIcon: ({ focused }) => <Ionicons name="person-outline" size={24} color={focused ? COLORS.primary : COLORS.inputbox} />,
         }}
       />
     </Tabs>
