@@ -8,36 +8,44 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const placeholderProducts = [
   {
+    id: 0,
     name: "Modern Lamp",
     price: 29.99,
     imageUrl: "@/assets/images/lamp.png",
   },
   {
+    id: 1,
     name: "Stylish Chair",
     price: 89.99,
     imageUrl: "@/assets/images/lamp.png",
   },
   {
+    id: 2,
+
     name: "Wooden Table",
     price: 199.99,
     imageUrl: "@/assets/images/lamp.png",
   },
   {
+    id: 3,
     name: "Wooden Table",
     price: 199.99,
     imageUrl: "@/assets/images/lamp.png",
   },
   {
+    id: 4,
     name: "Stylish Chair",
     price: 89.99,
     imageUrl: "@/assets/images/lamp.png",
   },
   {
+    id: 5,
     name: "Wooden Table",
     price: 199.99,
     imageUrl: "@/assets/images/lamp.png",
   },
   {
+    id: 6,
     name: "Wooden Table",
     price: 199.99,
     imageUrl: "@/assets/images/lamp.png",
