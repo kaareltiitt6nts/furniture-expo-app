@@ -8,12 +8,13 @@ type ProductListProps = {
 export const ProductGridList = (props: ProductListProps) => {
   return (
     <View style={styles.container}>
-      {props.products?.map((product, index) => (
+      {props.products?.map((product) => (
         <ProductPreview
-          key={index}
+          key={product.id}
           name={product.name}
           price={product.price}
           imageUrl={product.imageUrl}
+          onPress={() => console.log(`OnPressed ${product.id}`)}
         />
       ))}
     </View>

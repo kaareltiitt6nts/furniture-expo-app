@@ -1,15 +1,17 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 export type ProductPreviewProps = {
   id?: number;
   name?: string;
   price?: number;
   imageUrl?: string;
+  onPress?: () => void;
+  onRemove?: () => void;
 };
 
 export const ProductPreview = (props: ProductPreviewProps) => {
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={props.onPress}>
       <View style={styles.imageContainer}>
         <Image
           source={require("@/assets/images/lamp.png")}
@@ -20,7 +22,7 @@ export const ProductPreview = (props: ProductPreviewProps) => {
         <Text style={styles.name}>{props.name ?? "null"}</Text>
         <Text style={styles.price}>$ {props.price ?? "null"}</Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

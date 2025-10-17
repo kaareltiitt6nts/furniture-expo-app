@@ -9,7 +9,7 @@ export default function RootLayout() {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          paddingHorizontal: 80
+          paddingHorizontal: 80,
         },
         sceneStyle: {
           backgroundColor: COLORS.background,
@@ -22,7 +22,13 @@ export default function RootLayout() {
           title: "Home",
           tabBarActiveTintColor: COLORS.secondary,
           tabBarInactiveTintColor: COLORS.secondary,
-          tabBarIcon: ({ focused }) => <Ionicons name="home-outline" size={24} color={focused ? COLORS.primary : COLORS.inputbox} />,
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "home" : "home-outline"}
+              size={24}
+              color={focused ? COLORS.primary : COLORS.inputbox}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -31,7 +37,13 @@ export default function RootLayout() {
           title: "Favorites",
           tabBarActiveTintColor: COLORS.primary,
           tabBarInactiveTintColor: COLORS.secondary,
-          tabBarIcon: ({ focused }) => <Ionicons name="bookmark-outline" size={24} color={focused ? COLORS.primary : COLORS.inputbox} />,
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "bookmark" : "bookmark-outline"}
+              size={24}
+              color={focused ? COLORS.primary : COLORS.inputbox}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -40,7 +52,13 @@ export default function RootLayout() {
           title: "Profile",
           tabBarActiveTintColor: COLORS.primary,
           tabBarInactiveTintColor: COLORS.secondary,
-          tabBarIcon: ({ focused }) => <Ionicons name="person-outline" size={24} color={focused ? COLORS.primary : COLORS.inputbox} />,
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "person" : "person-outline"}
+              size={24}
+              color={focused ? COLORS.primary : COLORS.inputbox}
+            />
+          ),
         }}
       />
     </Tabs>

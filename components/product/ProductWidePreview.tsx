@@ -5,7 +5,7 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 export const ProductWidePreview = (props: ProductPreviewProps) => {
   return (
-    <View style={styles.container}>
+    <Pressable onPress={props.onPress} style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
           source={require("@/assets/images/lamp.png")}
@@ -19,7 +19,11 @@ export const ProductWidePreview = (props: ProductPreviewProps) => {
         </View>
 
         <View>
-          <Pressable onPress={() => console.log("Remove")}>
+          <Pressable
+            style={styles.removeButton}
+            onPress={props.onRemove}
+            hitSlop={10}
+          >
             <Ionicons
               name="close-circle-outline"
               size={24}
@@ -28,7 +32,7 @@ export const ProductWidePreview = (props: ProductPreviewProps) => {
           </Pressable>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
@@ -61,5 +65,8 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 16,
     fontWeight: "700",
+  },
+  removeButton: {
+    marginRight: 8,
   },
 });

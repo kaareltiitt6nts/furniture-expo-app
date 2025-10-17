@@ -18,6 +18,8 @@ export const ProductColumnList = (props: ProductListProps) => {
             name={item.name}
             price={item.price}
             imageUrl={item.imageUrl}
+            onPress={() => console.log(`OnPressed ${item.id}`)}
+            onRemove={() => console.log(`OnRemove ${item.id}`)}
           />
         )}
         keyExtractor={(item) => item.id?.toString() ?? ""}

@@ -6,4 +6,5 @@ export const ICONS = {
   eyeClosed: require("@/assets/icon/eye-closed.png"),
   magnifier: require("@/assets/icon/magnifier.png"),
   star: require("@/assets/icon/star.png"),
+  logout: require("@/assets/icon/logout.png"),
 };
