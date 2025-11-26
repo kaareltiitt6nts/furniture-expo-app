@@ -4,16 +4,16 @@ import { useRouter } from "expo-router";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export const SplashScreen = () => {
-  const router = useRouter()
+export default function SplashScreen() {
+  const router = useRouter();
 
   const onSignIn = () => {
-    router.navigate("/signin")
-  }
+    router.push("/signin");
+  };
 
   const onSignUp = () => {
-    router.navigate("/signup")
-  }
+    router.push("/signup");
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,12 +27,12 @@ export const SplashScreen = () => {
       <Text style={styles.brandText}>here!</Text>
 
       <View style={styles.buttonContainer}>
-        <Button title="Sign In" onPress={onSignIn}/>
+        <Button title="Sign In" onPress={onSignIn} />
         <Button title="Sign Up" type="white" onPress={onSignUp} />
       </View>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {

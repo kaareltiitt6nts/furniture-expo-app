@@ -6,33 +6,37 @@ import { useRouter } from "expo-router";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export const ProfileScreen = () => {
+export default function ProfileScreen() {
   const router = useRouter();
+
+  const onLogOut = () => {
+    router.push("/(splash)");
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <HomeHeader
         title="Profile"
-        showButton
         alignButton="right"
         icon={ICONS.logout}
+        onPress={onLogOut}
       />
       <View style={styles.detailsContainer}>
         <UserDetails name="John Doe" email="john.doe@example.com" />
         <SettingsButton
           label="My Listings"
           description="Manage your listings"
-          onPress={() => console.log("Navigate to Listings")}
+          onPress={() => router.push("/settings")}
         />
         <SettingsButton
           label="Settings"
           description="Update your profile settings"
-          onPress={() => console.log("Navigate to Settings")}
+          onPress={() => router.push("/settings")}
         />
       </View>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {},

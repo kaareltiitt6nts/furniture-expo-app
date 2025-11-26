@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 
 type Category = {
-  id: number | string;
+  id: number;
   title: string;
   icon?: any;
 };
 
 type CategorySliderProps = {
   categories: Category[];
-  onCategorySelect?: (categoryId: string) => void;
+  onCategorySelect?: (categoryId: number) => void;
   initialSelectedId?: string;
 };
 
@@ -21,7 +21,7 @@ export const CategorySlider = ({
 }: CategorySliderProps) => {
   const [selectedId, setSelectedId] = useState(categories[0]?.id);
 
-  const handlePress = (categoryId: string) => {
+  const handlePress = (categoryId: number) => {
     setSelectedId(categoryId);
     onCategorySelect?.(categoryId);
   };

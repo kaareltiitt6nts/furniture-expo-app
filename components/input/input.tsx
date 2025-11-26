@@ -45,11 +45,7 @@ export const Input = ({
         {isPassword && (
           <Pressable onPress={onPasswordVisibilityToggle}>
             <Image
-              source={
-                isPasswordVisible
-                  ? ICONS.eyeClosed
-                  : ICONS.eye
-              }
+              source={isPasswordVisible ? ICONS.eyeClosed : ICONS.eye}
               style={styles.eyeIcon}
             />
           </Pressable>

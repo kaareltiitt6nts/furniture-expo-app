@@ -11,6 +11,8 @@ export default function RootLayout() {
         tabBarStyle: {
           paddingHorizontal: 80,
         },
+        tabBarActiveTintColor: COLORS.secondary,
+        tabBarInactiveTintColor: COLORS.secondary,
         sceneStyle: {
           backgroundColor: COLORS.background,
         },
@@ -20,8 +22,6 @@ export default function RootLayout() {
         name="home"
         options={{
           title: "Home",
-          tabBarActiveTintColor: COLORS.secondary,
-          tabBarInactiveTintColor: COLORS.secondary,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? "home" : "home-outline"}
@@ -35,8 +35,6 @@ export default function RootLayout() {
         name="favorites"
         options={{
           title: "Favorites",
-          tabBarActiveTintColor: COLORS.primary,
-          tabBarInactiveTintColor: COLORS.secondary,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? "bookmark" : "bookmark-outline"}
@@ -47,11 +45,9 @@ export default function RootLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="(profile)"
         options={{
           title: "Profile",
-          tabBarActiveTintColor: COLORS.primary,
-          tabBarInactiveTintColor: COLORS.secondary,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? "person" : "person-outline"}

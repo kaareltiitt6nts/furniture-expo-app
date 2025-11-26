@@ -10,10 +10,11 @@ export const ProductGridList = (props: ProductListProps) => {
     <View style={styles.container}>
       {props.products?.map((product) => (
         <ProductPreview
+          id={product.id}
           key={product.id}
-          name={product.name}
+          title={product.title}
           price={product.price}
-          imageUrl={product.imageUrl}
+          image={product.image}
           onPress={() => console.log(`OnPressed ${product.id}`)}
         />
       ))}

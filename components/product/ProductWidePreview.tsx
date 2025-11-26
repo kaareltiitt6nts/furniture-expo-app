@@ -7,14 +7,13 @@ export const ProductWidePreview = (props: ProductPreviewProps) => {
   return (
     <Pressable onPress={props.onPress} style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image
-          source={require("@/assets/images/lamp.png")}
-          style={styles.image}
-        />
+        <Image source={{ uri: props.image }} style={styles.image} />
       </View>
       <View style={styles.detailsContainer}>
         <View>
-          <Text style={styles.name}>{props.name ?? "null"}</Text>
+          <Text style={styles.name} numberOfLines={1}>
+            {props.title ?? "null"}
+          </Text>
           <Text style={styles.price}>$ {props.price ?? "null"}</Text>
         </View>
 
@@ -53,14 +52,16 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   detailsContainer: {
+    flex: 1,
     justifyContent: "space-between",
-    flexGrow: 1,
     marginLeft: 6,
     flexDirection: "row",
   },
   name: {
     fontSize: 14,
     fontWeight: "400",
+    width: 200,
+    overflow: "hidden",
   },
   price: {
     fontSize: 16,

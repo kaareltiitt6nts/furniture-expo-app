@@ -10,20 +10,22 @@ import {
 
 type HeaderProps = {
   title: string;
-  showButton?: boolean;
   alignButton?: "left" | "right";
   icon?: ImageSourcePropType | undefined;
+  onPress?: () => void;
 };
 
 export const HomeHeader = (props: HeaderProps) => {
   return (
     <View style={styles.container}>
-      <Pressable
-        onPress={() => {}}
-        style={props.alignButton === "right" ? { marginLeft: "auto" } : {}}
-      >
-        <Image source={props.icon} style={styles.icon} />
-      </Pressable>
+      {props.icon && (
+        <Pressable
+          onPress={props.onPress}
+          style={props.alignButton === "right" ? { marginLeft: "auto" } : {}}
+        >
+          <Image source={props.icon} style={styles.icon} />
+        </Pressable>
+      )}
 
       <Text style={styles.title}>{props.title}</Text>
     </View>

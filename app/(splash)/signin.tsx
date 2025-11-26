@@ -16,16 +16,16 @@ import {
   View,
 } from "react-native";
 
-export const SignInScreen = () => {
+export default function SignInScreen() {
   const router = useRouter();
 
   const onBack = () => {
-    router.navigate("/splash");
+    router.push("/(splash)");
   };
 
   const onSignIn = () => {
-    router.navigate("/(tabs)/home")
-  }
+    router.navigate("/(tabs)/home");
+  };
 
   return (
     <KeyboardAvoidingView
@@ -55,7 +55,7 @@ export const SignInScreen = () => {
       </ScrollView>
     </KeyboardAvoidingView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
