@@ -3,6 +3,7 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 export type ProductPreviewProps = {
   id: number;
   title: string;
+  description: string;
   price: number;
   image: string;
   onPress?: () => void;

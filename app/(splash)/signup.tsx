@@ -23,6 +23,10 @@ export default function SignUpScreen() {
     router.push("/(splash)");
   };
 
+  const onSignUp = () => {
+    router.push("/(tabs)/home");
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}

@@ -1,11 +1,18 @@
 import { StyleSheet, View } from "react-native";
 import { ProductPreview, ProductPreviewProps } from "../ProductPreview";
+import { useRouter } from "expo-router";
 
 type ProductListProps = {
   products?: ProductPreviewProps[];
 };
 
 export const ProductGridList = (props: ProductListProps) => {
+  const router = useRouter();
+
+  const onProductPress = (productId: number) => {
+    router.navigate(`/product/${productId}`);
+  };
+
   return (
     <View style={styles.container}>
       {props.products?.map((product) => (
@@ -13,9 +20,10 @@ export const ProductGridList = (props: ProductListProps) => {
           id={product.id}
           key={product.id}
           title={product.title}
+          description={product.description}
           price={product.price}
           image={product.image}
-          onPress={() => console.log(`OnPressed ${product.id}`)}
+          onPress={() => onProductPress(product.id)}
         />
       ))}
     </View>

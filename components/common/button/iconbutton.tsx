@@ -1,18 +1,19 @@
 import { COLORS } from "@/global/colors";
-import { useRef } from "react";
-import { Animated, Easing, Pressable, StyleSheet, Text } from "react-native";
+import React, { useRef } from "react";
+import { Animated, Easing, Pressable, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-type ButtonProps = {
+type IconButtonProps = {
   onPress?: () => void;
-  title: string;
   type?: "normal" | "white";
+  toggled?: boolean;
 };
 
-export const Button = ({
+export const IconButton = ({
   onPress = () => {},
-  title,
   type = "normal",
-}: ButtonProps) => {
+  toggled = true,
+}: IconButtonProps) => {
   const opacity = useRef(new Animated.Value(1)).current;
 
   const onPressIn = () => {
@@ -39,18 +40,18 @@ export const Button = ({
       onPress={onPress}
       onPressIn={onPressIn}
       onPressOut={onPressOut}
-      style={{ flex: 1 }}
     >
       <Animated.View
         style={[
           styles.container,
-          type === "white" && styles.whiteContainer,
+          toggled && styles.toggledContainer,
           { opacity },
         ]}
       >
-        <Text style={[styles.text, type === "white" && styles.whiteText]}>
-          {title}
-        </Text>
+        <Ionicons
+          name={"bookmark"}
+          style={[styles.icon, toggled && styles.toggledIcon]}
+        />
       </Animated.View>
     </Pressable>
   );
@@ -63,19 +64,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     borderRadius: 8,
     height: 64,
+    width: 64,
     justifyContent: "center",
+    alignItems: "center",
   },
-  text: {
-    color: "#FFFFFF",
-    fontFamily: "Montserrat",
-    textAlign: "center",
-    fontSize: 16,
-    fontWeight: "700",
+  icon: {
+    fontSize: 24,
+    color: "#FFF",
   },
-  whiteContainer: {
-    backgroundColor: "#FFFFFF",
+  toggledContainer: {
+    backgroundColor: COLORS.lightGray,
   },
-  whiteText: {
+  toggledIcon: {
     color: COLORS.primary,
   },
 });
